@@ -4,6 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Project } from "@/types";
 import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
+import Link from "next/link";
 
 const Home = async () => {
   const user = await currentUser();
@@ -48,6 +49,10 @@ const Home = async () => {
               />
             );
           })}
+        </div>
+        <div className="flex items-center gap-1 text-bg">
+          <Link href={"/sign-in"}>elvxk</Link>
+          <Link href={"/sign-out"}>@ {new Date().getFullYear()}</Link>
         </div>
       </div>
     </div>
