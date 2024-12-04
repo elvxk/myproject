@@ -10,7 +10,7 @@ const Home = async () => {
   const user = await currentUser();
   const role = user?.publicMetadata.role;
 
-  const res = await fetch("https://api.sandri.my.id/projects", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_ENDPOINT}/projects`, {
     cache: "no-store",
   });
   const { data } = await res.json();

@@ -29,13 +29,16 @@ const RemoveProject = ({
 
   const handleDelete = async () => {
     try {
-      const response = await fetch("https://api.sandri.my.id/api/projects", {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_ENDPOINT}/projects`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id: data.id }),
         },
-        body: JSON.stringify({ id: data.id }),
-      });
+      );
 
       if (!response.ok) {
         throw new Error("Failed to delete the project");

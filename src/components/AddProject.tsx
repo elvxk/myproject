@@ -66,13 +66,16 @@ const AddProject = ({
   const onSubmit = handleSubmit(async (values, event) => {
     event?.preventDefault();
     try {
-      const response = await fetch("https://api.sandri.my.id/api/projects", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_ENDPOINT}/projects`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
         },
-        body: JSON.stringify(values),
-      });
+      );
 
       if (!response.ok) {
         throw new Error("Failed to fetch");
